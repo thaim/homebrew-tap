@@ -5,31 +5,39 @@
 class Ec2id < Formula
   desc ""
   homepage ""
-  version "0.1.2"
+  version "0.1.3"
 
   on_macos do
-    url "https://github.com/thaim/ec2id/releases/download/v0.1.2/ec2id_Darwin_x86_64.tar.gz"
-    sha256 "cabea1148081edd7e9ca51ebe3d4ad0869cbfac51d60726e5ec7e5c6dff8c30f"
-
-    def install
-      bin.install "ec2id"
-    end
-
     if Hardware::CPU.arm?
-      def caveats
-        <<~EOS
-          The darwin_arm64 architecture is not supported for the Ec2id
-          formula at this time. The darwin_amd64 binary may work in compatibility
-          mode, but it might not be fully supported.
-        EOS
+      url "https://github.com/thaim/ec2id/releases/download/v0.1.3/ec2id_Darwin_arm64.tar.gz"
+      sha256 "0610129069fba76e327ec4c581b0ef59fd19977724730152ea36cfe2deaf21ec"
+
+      def install
+        bin.install "ec2id"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/thaim/ec2id/releases/download/v0.1.3/ec2id_Darwin_x86_64.tar.gz"
+      sha256 "0bae25fdc325240c67c89f356d0d4510f7d09f9839d4cfb410731b3da45e3974"
+
+      def install
+        bin.install "ec2id"
       end
     end
   end
 
   on_linux do
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/thaim/ec2id/releases/download/v0.1.3/ec2id_Linux_arm64.tar.gz"
+      sha256 "e8a8ccc0ce96c73e92cd38d5836645fc421973388f621c63ee2dff044b208bb6"
+
+      def install
+        bin.install "ec2id"
+      end
+    end
     if Hardware::CPU.intel?
-      url "https://github.com/thaim/ec2id/releases/download/v0.1.2/ec2id_Linux_x86_64.tar.gz"
-      sha256 "049322d1e379881bdc72b63e29123de866db743f1fc522a1d7d41603ade77d32"
+      url "https://github.com/thaim/ec2id/releases/download/v0.1.3/ec2id_Linux_x86_64.tar.gz"
+      sha256 "29ac487367c6331b8974eba4b42cb667ed3812432177bd509803cc8f364d7e89"
 
       def install
         bin.install "ec2id"
