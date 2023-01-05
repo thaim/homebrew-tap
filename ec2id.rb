@@ -5,20 +5,20 @@
 class Ec2id < Formula
   desc ""
   homepage ""
-  version "0.1.3"
+  version "0.2.0"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/thaim/ec2id/releases/download/v0.1.3/ec2id_Darwin_arm64.tar.gz"
-      sha256 "0610129069fba76e327ec4c581b0ef59fd19977724730152ea36cfe2deaf21ec"
+    if Hardware::CPU.intel?
+      url "https://github.com/thaim/ec2id/releases/download/v0.2.0/ec2id_Darwin_x86_64.tar.gz"
+      sha256 "9da6c6aeb5994cdf5716edeea94667c55eb00cbf28a36669bfc27aacdef5165c"
 
       def install
         bin.install "ec2id"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/thaim/ec2id/releases/download/v0.1.3/ec2id_Darwin_x86_64.tar.gz"
-      sha256 "0bae25fdc325240c67c89f356d0d4510f7d09f9839d4cfb410731b3da45e3974"
+    if Hardware::CPU.arm?
+      url "https://github.com/thaim/ec2id/releases/download/v0.2.0/ec2id_Darwin_arm64.tar.gz"
+      sha256 "70bcfa6ff19873d35deef1f99d06635a367938e1c90e93a84e67bf97fda8de25"
 
       def install
         bin.install "ec2id"
@@ -28,16 +28,16 @@ class Ec2id < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/thaim/ec2id/releases/download/v0.1.3/ec2id_Linux_arm64.tar.gz"
-      sha256 "e8a8ccc0ce96c73e92cd38d5836645fc421973388f621c63ee2dff044b208bb6"
+      url "https://github.com/thaim/ec2id/releases/download/v0.2.0/ec2id_Linux_arm64.tar.gz"
+      sha256 "fd404ab6c7c0ab213ecaaf7f469d1deb30ef0f47b213f573901f957a02d24784"
 
       def install
         bin.install "ec2id"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/thaim/ec2id/releases/download/v0.1.3/ec2id_Linux_x86_64.tar.gz"
-      sha256 "29ac487367c6331b8974eba4b42cb667ed3812432177bd509803cc8f364d7e89"
+      url "https://github.com/thaim/ec2id/releases/download/v0.2.0/ec2id_Linux_x86_64.tar.gz"
+      sha256 "96b0ca1b765c6ebbf01b07b3ee9aca86b5a0b7ba0ac77e2044661c497326642d"
 
       def install
         bin.install "ec2id"
