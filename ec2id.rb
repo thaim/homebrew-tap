@@ -5,20 +5,20 @@
 class Ec2id < Formula
   desc ""
   homepage ""
-  version "0.2.0"
+  version "0.2.1"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/thaim/ec2id/releases/download/v0.2.0/ec2id_Darwin_x86_64.tar.gz"
-      sha256 "9da6c6aeb5994cdf5716edeea94667c55eb00cbf28a36669bfc27aacdef5165c"
+    if Hardware::CPU.arm?
+      url "https://github.com/thaim/ec2id/releases/download/v0.2.1/ec2id_Darwin_arm64.tar.gz"
+      sha256 "5d89846a8bc1e8bdc633ce8d0298ebc668793b6d094e1a892dcc0f580bf1f4ba"
 
       def install
         bin.install "ec2id"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/thaim/ec2id/releases/download/v0.2.0/ec2id_Darwin_arm64.tar.gz"
-      sha256 "70bcfa6ff19873d35deef1f99d06635a367938e1c90e93a84e67bf97fda8de25"
+    if Hardware::CPU.intel?
+      url "https://github.com/thaim/ec2id/releases/download/v0.2.1/ec2id_Darwin_x86_64.tar.gz"
+      sha256 "d84c9197f8c44656d157a7857315ff0fe942811a1ed4270a63c409c42eef7f3f"
 
       def install
         bin.install "ec2id"
@@ -27,17 +27,17 @@ class Ec2id < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/thaim/ec2id/releases/download/v0.2.0/ec2id_Linux_arm64.tar.gz"
-      sha256 "fd404ab6c7c0ab213ecaaf7f469d1deb30ef0f47b213f573901f957a02d24784"
+    if Hardware::CPU.intel?
+      url "https://github.com/thaim/ec2id/releases/download/v0.2.1/ec2id_Linux_x86_64.tar.gz"
+      sha256 "60cf887f7dc22e898d23a55a986d3c7212750507b49524c826a379ea54c74e1d"
 
       def install
         bin.install "ec2id"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/thaim/ec2id/releases/download/v0.2.0/ec2id_Linux_x86_64.tar.gz"
-      sha256 "96b0ca1b765c6ebbf01b07b3ee9aca86b5a0b7ba0ac77e2044661c497326642d"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/thaim/ec2id/releases/download/v0.2.1/ec2id_Linux_arm64.tar.gz"
+      sha256 "6fde4a16311d8111f9938c6bbdb083aa83cefea8d1530ee379451078d2561789"
 
       def install
         bin.install "ec2id"
