@@ -5,20 +5,20 @@
 class Tfcvars < Formula
   desc "tfcvars is a CLI tool that synchronizes variables managed in Terraform Cloud with local variable files"
   homepage "https://github.com/thaim/tfcvars"
-  version "0.2.0"
+  version "0.3.0"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/thaim/tfcvars/releases/download/v0.2.0/tfcvars_Darwin_arm64.tar.gz"
-      sha256 "b88a55845f035cfee4eb1043d7fbd89cc0ae04acb696af016acc9bb13a788c9a"
+    if Hardware::CPU.intel?
+      url "https://github.com/thaim/tfcvars/releases/download/v0.3.0/tfcvars_Darwin_x86_64.tar.gz"
+      sha256 "e94e81fdbd4601867cebcbfd5f407e56029fdb18f1c99bea20373a5d10b7d574"
 
       def install
         bin.install "tfcvars"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/thaim/tfcvars/releases/download/v0.2.0/tfcvars_Darwin_x86_64.tar.gz"
-      sha256 "69e5931b7a5fb666bfbc3d422e0ecbf7249c609d8a81e708065e85047add82ca"
+    if Hardware::CPU.arm?
+      url "https://github.com/thaim/tfcvars/releases/download/v0.3.0/tfcvars_Darwin_arm64.tar.gz"
+      sha256 "052434a536c86898151a8e66170eafbef03e7f2d4cd1601d5a78ebc6fd754a27"
 
       def install
         bin.install "tfcvars"
@@ -27,17 +27,17 @@ class Tfcvars < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/thaim/tfcvars/releases/download/v0.2.0/tfcvars_Linux_x86_64.tar.gz"
-      sha256 "63af412fbd5b56e514076ef12d60772a3134cd35408189e785a946bae4562742"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/thaim/tfcvars/releases/download/v0.3.0/tfcvars_Linux_arm64.tar.gz"
+      sha256 "3c7ca386e42e6a84125b4bf49b81add1a2f46efd54df1d9546644bc474c5b461"
 
       def install
         bin.install "tfcvars"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/thaim/tfcvars/releases/download/v0.2.0/tfcvars_Linux_arm64.tar.gz"
-      sha256 "7422eaa9da16448f25ef31b37b85d61d88ef4d9c065a1caffb2ed637d9ed30d1"
+    if Hardware::CPU.intel?
+      url "https://github.com/thaim/tfcvars/releases/download/v0.3.0/tfcvars_Linux_x86_64.tar.gz"
+      sha256 "92d9847114b0b97821b1530cbbd30e639fb6b42c1dd956bc9035ec999768507e"
 
       def install
         bin.install "tfcvars"
