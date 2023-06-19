@@ -5,20 +5,20 @@
 class Tfcvars < Formula
   desc "tfcvars is a CLI tool that synchronizes variables managed in Terraform Cloud with local variable files"
   homepage "https://github.com/thaim/tfcvars"
-  version "0.4.1"
+  version "0.5.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/thaim/tfcvars/releases/download/v0.4.1/tfcvars_Darwin_arm64.tar.gz"
-      sha256 "4552d1d01073998ba5722ac290f89abcc72b790792ecce759616ffeeadcb5365"
+      url "https://github.com/thaim/tfcvars/releases/download/v0.5.0/tfcvars_Darwin_arm64.tar.gz"
+      sha256 "5d43db61ca7cd00a008bc70f5acbca1812776976b2f6a1509e0ccee954ae6579"
 
       def install
         bin.install "tfcvars"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/thaim/tfcvars/releases/download/v0.4.1/tfcvars_Darwin_x86_64.tar.gz"
-      sha256 "6a58797fc087a45aa2987119890bab1c55acca0ac3666fcb2a15d7b14d59802d"
+      url "https://github.com/thaim/tfcvars/releases/download/v0.5.0/tfcvars_Darwin_x86_64.tar.gz"
+      sha256 "c9d32b927ff46abf2e0436da5e60277febe6f5294b44605431f20e96cfc7a8f4"
 
       def install
         bin.install "tfcvars"
@@ -27,17 +27,17 @@ class Tfcvars < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/thaim/tfcvars/releases/download/v0.4.1/tfcvars_Linux_arm64.tar.gz"
-      sha256 "3134b944aac7dae870e90ffa9a14f99f06dedb1375945d1b07e40f7fbe68cc40"
+    if Hardware::CPU.intel?
+      url "https://github.com/thaim/tfcvars/releases/download/v0.5.0/tfcvars_Linux_x86_64.tar.gz"
+      sha256 "be150a8dfa6f6e16985cba642d498a0439fbfd579c2027e81ad11939e0a7ec75"
 
       def install
         bin.install "tfcvars"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/thaim/tfcvars/releases/download/v0.4.1/tfcvars_Linux_x86_64.tar.gz"
-      sha256 "93433b567e0debaf97916d3d0c288b1893b9d2d894113d3a878b0b970e0e5eeb"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/thaim/tfcvars/releases/download/v0.5.0/tfcvars_Linux_arm64.tar.gz"
+      sha256 "ff6ff49f6afef29941dd98e94e6e87e1696bc3dec60434382efb7b485eade641"
 
       def install
         bin.install "tfcvars"
