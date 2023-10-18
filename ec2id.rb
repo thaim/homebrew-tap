@@ -5,20 +5,20 @@
 class Ec2id < Formula
   desc "A CLI tool that retrieve the EC2 instance ID of specified instance's Name tag"
   homepage "https://github.com/thaim/ec2id"
-  version "0.3.3"
+  version "0.3.4"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/thaim/ec2id/releases/download/v0.3.3/ec2id_Darwin_arm64.tar.gz"
-      sha256 "f3511f7568c5b03b82e3cf6cc0d8adbadf7ec72b7c313b652a0f6e82e83b53b7"
+    if Hardware::CPU.intel?
+      url "https://github.com/thaim/ec2id/releases/download/v0.3.4/ec2id_Darwin_x86_64.tar.gz"
+      sha256 "5235a6d1dad762b5bc383c735620dcd288e54044fbf9e25cf3cea1f2b0d9be5c"
 
       def install
         bin.install "ec2id"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/thaim/ec2id/releases/download/v0.3.3/ec2id_Darwin_x86_64.tar.gz"
-      sha256 "04f2ccbe3b5ff6ec58bf916489fbb9087e8a7fdb234c6d09007df32c4838f688"
+    if Hardware::CPU.arm?
+      url "https://github.com/thaim/ec2id/releases/download/v0.3.4/ec2id_Darwin_arm64.tar.gz"
+      sha256 "de56bd8b0e32894f2dd364879addb5520302f4271b26d95e739323bba3d6616b"
 
       def install
         bin.install "ec2id"
@@ -27,17 +27,17 @@ class Ec2id < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/thaim/ec2id/releases/download/v0.3.3/ec2id_Linux_x86_64.tar.gz"
-      sha256 "a6b8231bc3eee0c4d382ccae4a410abafe79ba6a1142a200e5318e5bba948614"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/thaim/ec2id/releases/download/v0.3.4/ec2id_Linux_arm64.tar.gz"
+      sha256 "783ac1edcc668b19e2d1abedb3f559f69c925ce8bb1b8283b2531f0fb59723c6"
 
       def install
         bin.install "ec2id"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/thaim/ec2id/releases/download/v0.3.3/ec2id_Linux_arm64.tar.gz"
-      sha256 "059aa01731bc8d258d8821c01bfe80056bb63f34086ee6b809af33be3748c7bc"
+    if Hardware::CPU.intel?
+      url "https://github.com/thaim/ec2id/releases/download/v0.3.4/ec2id_Linux_x86_64.tar.gz"
+      sha256 "43bfde4336ef368ace340d2770cfc0773ae40e086a0c950f79ba6a8eee705aef"
 
       def install
         bin.install "ec2id"
